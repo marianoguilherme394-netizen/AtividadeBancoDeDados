@@ -1,0 +1,53 @@
+create database Colegio
+use Colégio
+
+create table tbAlunos(
+matricula varchar(5) primary key auto_increment,
+nome varchar(50) NOT NULL,
+endereco varchar(50) NOT NULL,
+cidade varchar(30) NOT NULL,
+codCurso);
+
+create table tbCursos(
+codAluno char(2) primary key auto_increment,
+nome varchar(50) NOT NULL,
+codDisc1 char(2), constraint Fk_codDisc1 foreign key(codDisciplina) references tbDisciplinas (codDisciplina),
+codDisc2 char(2), constraint Fk_codDisc2 foreign key(codDisciplina) references tbDisciplinas (codDisciplina),
+codDisc3 char(2), constraint Fk_codDisc3 foreign key(codDisciplina) references tbDisciplinas (codDisciplina));
+
+create table tbDisciplinas(
+codDisciplina char(2) primary key auto_increment,
+nomeDisciplina varchar(30) NOT NULL);
+
+
+insert into tbAlunos values (10001, 'Marcos Moraes', 'Rua Pe Roque, 2057', 'Mogi Mirim', 01);
+insert into tbAlunos values (10002, 'Maria Conceição Lopes', 'Rua Araras, 23', 'Mogi Guaçu', 01);
+insert into tbAlunos values (10003, 'Ana Carina Lopes', 'Rua Peraltas, 222', 'Santos', 01);
+insert into tbAlunos values (10004, 'Carlos Aguiar', 'Rua Botafogo, 33', 'Santos', 01);
+insert into tbAlunos values (10005, 'André Luiz dos Santos', 'Rua Lopes Conte, 3343', 'Sapucaí', 01);
+insert into tbAlunos values (10006, 'Pedro Antonio Pimenta', 'Rua Altair Lopes, 33', 'Itapira', 02);
+insert into tbAlunos values (10007, 'Rita de Cássia da Silva', 'Rua Eletromais, 33', 'Itapira', 02);
+insert into tbAlunos values (10008, 'Caique dos Santos', 'Rua das Amoreiras, 55', 'Campinas', 02);
+insert into tbAlunos values (10009, 'Carlos Tavares', 'Rua Peixe, 99', 'Santos', 02);
+insert into tbAlunos values (10010, 'Antonio Carlos Caetano', 'Rua Josefina Alface, 987', 'Campinas', 02);
+insert into tbAlunos values (10011, 'Ricardo Moreira', 'Rua do Pinhal, 332', 'Aparecida', 03);
+insert into tbAlunos values (10012, 'Richardson S. P. Campeao', 'Rua do Tricolor, 433', 'São Paulo', 03);
+insert into tbAlunos values (10013, 'Junior Camisa Seis', 'Rua do Morumbi, 433', 'São Paulo', 03);
+insert into tbAlunos values (10014, 'Carina Melo', 'Rua Osvaldo Ramos, 88', 'Mogi Guaçu', 03);
+insert into tbAlunos values (10015, 'Pedro Mello', 'Rua Itororó, 3999', 'Mogi Mirim', 03);
+
+
+insert into tbDisciplinas values (11, 'Banco de Dados');
+insert into tbDisciplinas values (12, 'Lógica de Programação');
+insert into tbDisciplinas values (13, 'Desenvolvimento de Software 1');
+insert into tbDisciplinas values (21, 'Banco de Dados 2');
+insert into tbDisciplinas values (22, 'Desenvolvimento de Software 2');
+insert into tbDisciplinas values (23, 'Programação de Computadores 1');
+insert into tbDisciplinas values (31, 'Banco de Dados 3');
+insert into tbDisciplinas values (32, 'Programação de Computadores 2');
+insert into tbDisciplinas values (33, 'Desenvolvimento de Software 3');
+
+
+insert into tbCursos values (01, 'Auxiliar de Informática', 11, 12, 13);
+insert into tbCursos values (02, 'Programador de Computadores', 21, 22, 23);
+insert into tbCursos values (03, 'Técnico em Informática', 31, 32, 33);

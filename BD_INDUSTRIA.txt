@@ -1,0 +1,51 @@
+create database BD_INDUSTRIA;
+use BD_INDUSTRIA
+
+create table FORNECEDORES(
+Cod_Fornecedor int(11) primary key auto_increment,
+Razao_Social varchar(70) NOT NULL,
+Nome_Fantasia varchar(70) NOT NULL,
+CNPJ varchar(20) NOT NULL,
+Endereco varchar(50) NOT NULL,
+Num varchar(18) NOT NULL,
+Bairro varchar(25) NOT NULL,
+Cidade varchar(25) NOT NULL,
+Fone varchar(18) NOT NULL,
+Nome_Contato varchar(20) NOT NULL,
+Email varchar(50) NOT NULL);
+
+create table PRODUTOS(
+Cod_Produto int(11) primary key auto increment,
+Descricao varchar(50) NOT NULL,
+Unidade varchar(2) NOT NULL,
+Qtde_Estoque double NOT NULL,
+Características varchar(50) NOT NULL,
+Cod_Fornecedor int(11), constraint Fk_CodFornecedor foreign key(Cod_Fornecedor) references FORNECEDORES (Cod_Fornecedor));
+
+
+insert into FORNECEDORES values (1, 'Comércio de Papéis Yuki Ltda', 'Yuki Papeis', '03.847.655/0001-98', 'Rua das Ameixeiras', '21', 'Penha', 'São Paulo', '(11) 2695-6398', 'Sr. Pedro', 'yuki@provedor.com.br');
+insert into FORNECEDORES values (2, 'Comércio de Papéis ABC Ltda', 'Papelaria ABC', '14.218.635/0001-27', 'Av. Iguapé', '1698', 'Tatuapé', 'São Paulo', '(11) 2369-9685', 'Sra. Beta', 'p_ABC@provedor.com.br');
+insert into FORNECEDORES values (3, 'Distribuidora Kalunga S.A.', 'Kalunga', '23.222.835/0001-07', 'Av. Rio das Pedras', '1752', 'Itaquera', 'São Paulo', '(11) 2596-9586', 'Sr. Marcos', 'kalunga@provedor.com.br');
+insert into FORNECEDORES values (4, 'Indústria e Comércio Nobel S.A.', 'Nobel', '07.256.898/0001-10', 'Rua das Bolhas', '900', 'Itaquera', 'São Paulo', '(11) 2475-6598', 'Sr. Paulo', 'nobel@provedor.com.br');
+insert into FORNECEDORES values (5, 'Papelaria Americanas Ltda', 'Americanas', '01.659.427/0001-04', 'Rua das Oliveiras', '21', 'Pari', 'São Paulo', '(11) 2456-9874', 'Sr. Antonio', 'americanas@provedor.com.br');
+insert into FORNECEDORES values (6, 'Distribuidora Brasileiras S.A.', 'Brasileiras', '01.326.255/0001-04', 'Av. Brasil', '12', 'Brás', 'São Paulo', '(11) 6598-6958', 'Sra. Paula', 'brasileiras@provedor.com.br');
+insert into FORNECEDORES values (7, 'Ind e Comércio de Papéis OI Ltda', 'Papéis OI', '01.362.126/0001-04', 'Av. dos Trilhos', '1362', 'Pari', 'São Paulo', '(11) 2365-2154', 'Sra. Ana', 'oi@provedor.com.br');
+insert into FORNECEDORES values (8, 'Armazéns Fernando Ltda', 'Fernando', '01.956.236/0001-04', 'Alameda Santos', '362', 'Centro', 'São Paulo', '(11) 2362-3659', 'Sr. Matheus', 'fernando@provedor.com.br');
+insert into FORNECEDORES values (9, 'Papelaria Alegria S.A.', 'Alegria', '14.632.326/0001-04', 'Rua das Fagulhas', '12', 'Cambuci', 'São Paulo', '(11) 2362-5487', 'Sr. Alegrete', 'alegria@provedor.com.br');
+insert into FORNECEDORES values (10, 'Comércio de Papéis Tchau Ltda', 'Tchau', '11.659.652/0001-04', 'Alameda dos Anhambiguaras', '326', 'Morumbi', 'São Paulo', '(11) 3256-6958', 'Sr. Bento', 'tchau@provedor.com.br');
+
+insert into PRODUTOS values (1, 'Caneta', 'un', 100, 'cor azul', 2);
+insert into PRODUTOS values (2, 'Caneta', 'un', 85, 'cor vermelha', 2);
+insert into PRODUTOS values (3, 'Caneta', 'un', 60, 'cor preta', 2);
+insert into PRODUTOS values (4, 'Lápis', 'un', 150, 'sem borracha', 3);
+insert into PRODUTOS values (5, 'Lápis', 'un', 100, 'com borracha', 4);
+insert into PRODUTOS values (6, 'Lápis de cor', 'cx', 125, '12 cores', 4);
+insert into PRODUTOS values (7, 'Lápis de cor', 'cx', 50, '24 cores', 4);
+insert into PRODUTOS values (8, 'Lápis de cor', 'cx', 35, '36 cores', 5);
+insert into PRODUTOS values (9, 'Borracha', 'dz', 35, 'Azul/Vermelha', 6);
+insert into PRODUTOS values (10, 'Borracha', 'dz', 25, 'Branca', 7);
+insert into PRODUTOS values (11, 'Papel Sulfite', 'pc', 100, 'Colorido', 8);
+insert into PRODUTOS values (12, 'Caderno Universitário', 'pc', 25, '1 matéria', 9);
+insert into PRODUTOS values (13, 'Caderno Universitário', 'pc', 150, '10 matérias', 9);
+insert into PRODUTOS values (14, 'Régua', 'un', 250, 'Acrílica - 30 cm', 10);
+insert into PRODUTOS values (15, 'Lapiseira', 'pc', 86, 'Grafite 0.5', 10);
